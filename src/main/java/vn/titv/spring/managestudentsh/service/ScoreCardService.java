@@ -2,34 +2,41 @@ package vn.titv.spring.managestudentsh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.titv.spring.managestudentsh.dao.SubjectDAO;
-import vn.titv.spring.managestudentsh.entity.Subject;
+import vn.titv.spring.managestudentsh.dao.ScorecardDAO;
+import vn.titv.spring.managestudentsh.entity.Scorecard;
+
+import java.util.List;
 
 @Service
-public class SubjectService implements UtilService<Subject>{
-    private SubjectDAO subjectDAO;
+public class ScoreCardService implements UtilService<Scorecard>{
+    private ScorecardDAO scorecardDAO;
     @Autowired
-    public SubjectService(SubjectDAO subjectDAO) {
-        this.subjectDAO = subjectDAO;
+    public ScoreCardService(ScorecardDAO scorecardDAO) {
+        this.scorecardDAO = scorecardDAO;
     }
 
     @Override
-    public Subject findById(int id) {
-        return this.subjectDAO.findById(id);
+    public List<Scorecard> getAll() {
+        return this.scorecardDAO.getAll();
     }
 
     @Override
-    public void save(Subject Subject) {
-        this.subjectDAO.save(Subject);
+    public Scorecard findById(int id) {
+        return this.scorecardDAO.findById(id);
     }
 
     @Override
-    public void update(Subject Subject) {
-        this.subjectDAO.update(Subject);
+    public void save(Scorecard scorecard) {
+        this.scorecardDAO.save(scorecard);
     }
 
     @Override
-    public void delete(Subject subject) {
-        this.subjectDAO.delete(subject);
+    public void update(Scorecard scorecard) {
+        this.scorecardDAO.update(scorecard);
+    }
+
+    @Override
+    public void delete(Scorecard scorecard) {
+        this.scorecardDAO.delete(scorecard);
     }
 }

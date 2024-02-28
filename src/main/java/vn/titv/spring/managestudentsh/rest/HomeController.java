@@ -1,4 +1,4 @@
-package vn.titv.spring.securityjpa.controller;
+package vn.titv.spring.managestudentsh.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

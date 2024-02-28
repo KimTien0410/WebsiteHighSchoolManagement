@@ -2,33 +2,41 @@ package vn.titv.spring.managestudentsh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.titv.spring.managestudentsh.dao.PersonDAO;
-import vn.titv.spring.managestudentsh.entity.Person;
+import vn.titv.spring.managestudentsh.dao.StudentDAO;
+import vn.titv.spring.managestudentsh.entity.Student;
+
+import java.util.List;
+
 @Service
-public class PersonService implements UtilService<Person>{
-    private PersonDAO personDAO;
+public class StudentService implements UtilService<Student>{
+    private StudentDAO studentDAO;
     @Autowired
-    public PersonService(PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public StudentService(StudentDAO studentDAO) {
+        this.studentDAO = studentDAO;
     }
 
     @Override
-    public Person findById(int id) {
-        return this.personDAO.findById(id);
+    public List<Student> getAll() {
+        return this.studentDAO.getAll();
     }
 
     @Override
-    public void save(Person person) {
-        this.personDAO.save(person);
+    public Student findById(int id) {
+        return this.studentDAO.findById(id);
     }
 
     @Override
-    public void update(Person person) {
-        this.personDAO.update(person);
+    public void save(Student student) {
+        this.studentDAO.save(student);
     }
 
     @Override
-    public void delete(Person person) {
-        this.personDAO.delete(person);
+    public void update(Student student) {
+        this.studentDAO.update(student);
+    }
+
+    @Override
+    public void delete(Student student) {
+        this.studentDAO.delete(student);
     }
 }

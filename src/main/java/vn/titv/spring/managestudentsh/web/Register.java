@@ -1,7 +1,9 @@
-package vn.titv.spring.securityjpa.web;
+package vn.titv.spring.managestudentsh.web;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
+
+import java.sql.Date;
 
 public class Register {
     @NotBlank(message = "field force")
@@ -13,9 +15,11 @@ public class Register {
              message="Password must have one number and one special characteristics")
     private String password;
     @NotBlank(message = "field force")
-    private String firstName;
+    private String fullName;
     @NotBlank(message = "field force")
-    private String lastName;
+    private Date dateOfBirth;
+    @NotBlank(message = "field required")
+    private Boolean gender;
     @NotBlank(message = "field force")
     @Email(message="Email is not validated")
     private String email;
@@ -23,12 +27,37 @@ public class Register {
     public Register() {
     }
 
-    public Register(String username, String password, String firstName, String lastName, String email) {
+    public Register(String username, String password, String fullName, Date dateOfBirth, Boolean gender, String email) {
         this.username = username;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
         this.email = email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Boolean getGender() {
+        return gender;
+    }
+
+    public void setGender(Boolean gender) {
+        this.gender = gender;
     }
 
     public String getUsername() {
@@ -47,21 +76,6 @@ public class Register {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getEmail() {
         return email;

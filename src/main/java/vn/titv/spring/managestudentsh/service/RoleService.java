@@ -2,33 +2,45 @@ package vn.titv.spring.managestudentsh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.titv.spring.managestudentsh.dao.ParentDAO;
-import vn.titv.spring.managestudentsh.entity.Parent;
+import vn.titv.spring.managestudentsh.dao.RoleDAO;
+import vn.titv.spring.managestudentsh.entity.Role;
+
+import java.util.List;
+
 @Service
-public class ParentService implements UtilService<Parent>{
-    private ParentDAO parentDAO;
+public class RoleService implements UtilService<Role>{
+    private RoleDAO roleDAO;
     @Autowired
-    public ParentService(ParentDAO parentDAO) {
-        this.parentDAO = parentDAO;
+    public RoleService(RoleDAO roleDAO) {
+        this.roleDAO = roleDAO;
     }
 
     @Override
-    public Parent findById(int id) {
-        return this.parentDAO.findById(id);
+    public List<Role> getAll() {
+        return this.roleDAO.getAll();
     }
 
     @Override
-    public void save(Parent parent) {
-        this.parentDAO.save(parent);
+    public Role findById(int id) {
+        return this.roleDAO.findById(id);
     }
 
     @Override
-    public void update(Parent parent) {
-        this.parentDAO.update(parent);
+    public void save(Role role) {
+        this.roleDAO.save(role);
     }
 
     @Override
-    public void delete(Parent parent) {
-        this.parentDAO.delete(parent);
+    public void update(Role role) {
+        this.roleDAO.update(role);
+    }
+
+    @Override
+    public void delete(Role role) {
+        this.roleDAO.delete(role);
+    }
+
+    public Role findByName(String name){
+        return this.roleDAO.findByName(name);
     }
 }

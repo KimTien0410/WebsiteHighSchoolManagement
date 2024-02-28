@@ -2,36 +2,43 @@ package vn.titv.spring.managestudentsh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.titv.spring.managestudentsh.dao.SchoolDAO;
-import vn.titv.spring.managestudentsh.entity.School;
+import vn.titv.spring.managestudentsh.dao.SchoolRecordDAO;
+import vn.titv.spring.managestudentsh.entity.SchoolRecord;
+
+import java.util.List;
 
 @Service
-public class SchoolService implements UtilService<School>{
-    private SchoolDAO schoolDAO;
+public class SchoolRecordService implements UtilService<SchoolRecord>{
+    private SchoolRecordDAO schoolRecordDAO;
     @Autowired
 
-    public SchoolService(SchoolDAO schoolDAO) {
-        this.schoolDAO = schoolDAO;
+    public SchoolRecordService(SchoolRecordDAO schoolRecordDAO) {
+        this.schoolRecordDAO = schoolRecordDAO;
     }
 
     @Override
-    public School findById(int id) {
-        return this.schoolDAO.findById(id);
+    public List<SchoolRecord> getAll() {
+        return this.schoolRecordDAO.getAll();
     }
 
     @Override
-    public void save(School school) {
-        this.schoolDAO.save(school);
+    public SchoolRecord findById(int id) {
+        return this.schoolRecordDAO.findById(id);
+    }
+
+    @Override
+    public void save(SchoolRecord schoolRecord) {
+        this.schoolRecordDAO.save(schoolRecord);
     }
 
 
     @Override
-    public void update(School school) {
-        this.schoolDAO.update(school);
+    public void update(SchoolRecord schoolRecord) {
+        this.schoolRecordDAO.update(schoolRecord);
     }
 
     @Override
-    public void delete(School school) {
-        this.schoolDAO.delete(school);
+    public void delete(SchoolRecord schoolRecord) {
+        this.schoolRecordDAO.delete(schoolRecord);
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name="class")
-public class Class {
+public class Classs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -17,22 +17,22 @@ public class Class {
     private String grade;
     @Column(name="school_year")
     private String schoolYear;
-    @OneToOne(mappedBy = "classs",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToOne(mappedBy = "classs",fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     private Employee employee_CN;
-    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name="notebook_id")
     private Notebook notebook;
 
-   @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
+   @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
     private List<Student> students;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST})
     @JoinColumn(name="school_id")
     private School school;
 
-    public Class() {
+    public Classs() {
     }
 
-    public Class(String nameClass, String grade, String schoolYear, Employee employee_CN, Notebook notebook, List<Student> students, School school) {
+    public Classs(String nameClass, String grade, String schoolYear, Employee employee_CN, Notebook notebook, List<Student> students, School school) {
         this.nameClass = nameClass;
         this.grade = grade;
         this.schoolYear = schoolYear;
@@ -42,7 +42,7 @@ public class Class {
         this.school = school;
     }
 
-    public Class(String nameClass, String grade, String schoolYear) {
+    public Classs(String nameClass, String grade, String schoolYear) {
         this.nameClass = nameClass;
         this.grade = grade;
         this.schoolYear = schoolYear;

@@ -2,33 +2,41 @@ package vn.titv.spring.managestudentsh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.titv.spring.managestudentsh.dao.ParentDAO;
-import vn.titv.spring.managestudentsh.entity.Parent;
+import vn.titv.spring.managestudentsh.dao.ClasssDAO;
+import vn.titv.spring.managestudentsh.entity.Classs;
+
+import java.util.List;
+
 @Service
-public class ParentService implements UtilService<Parent>{
-    private ParentDAO parentDAO;
+public class ClasssService implements UtilService<Classs>{
+    private ClasssDAO classsDAO;
     @Autowired
-    public ParentService(ParentDAO parentDAO) {
-        this.parentDAO = parentDAO;
+    public ClasssService(ClasssDAO classsDAO) {
+        this.classsDAO = classsDAO;
     }
 
     @Override
-    public Parent findById(int id) {
-        return this.parentDAO.findById(id);
+    public List<Classs> getAll() {
+        return this.classsDAO.getAll();
     }
 
     @Override
-    public void save(Parent parent) {
-        this.parentDAO.save(parent);
+    public Classs findById(int id) {
+        return this.classsDAO.findById(id);
     }
 
     @Override
-    public void update(Parent parent) {
-        this.parentDAO.update(parent);
+    public void save(Classs classs) {
+        this.classsDAO.save(classs);
     }
 
     @Override
-    public void delete(Parent parent) {
-        this.parentDAO.delete(parent);
+    public void update(Classs classs) {
+        this.classsDAO.update(classs);
+    }
+
+    @Override
+    public void delete(Classs classs) {
+        this.classsDAO.delete(classs);
     }
 }
