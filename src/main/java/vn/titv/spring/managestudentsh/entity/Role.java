@@ -13,7 +13,7 @@ public class Role {
     private int id;
     @Column(name="name")
     private String name;
-    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(name="account_role",
                 joinColumns = @JoinColumn(name="role_id"),
                 inverseJoinColumns = @JoinColumn(name = "account_id"))

@@ -61,5 +61,8 @@ public class AccountService implements UtilService<Account>, UserDetailsService 
     private Collection<? extends GrantedAuthority> rolesToAuthorities(Collection<Role> roles){
         return roles.stream().map(role->new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
+    public Account findByUsername(String username) {
+        return this.accountDAO.findByUsername(username);
+    }
 
 }

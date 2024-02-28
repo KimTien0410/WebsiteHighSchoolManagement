@@ -13,8 +13,8 @@
     <thead class="table-info">
         <tr>
             <td>ID</td>
-            <td>Họ đệm</td>
-            <td>Tên</td>
+            <td>Họ và tên </td>
+            <td>Lớp</td>
             <td>Email</td>
             <td> Chỉnh sửa</td>
         </tr>
@@ -22,8 +22,8 @@
     <tbody>
     <tr th:each="student : ${students}">
         <td th:text="${student.id}"/>
-        <td th:text="${student.lastName}"></td>
-        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.fullname}"></td>
+        <td th:text="${student.Name}"></td>
         <td th:text="${student.email}"></td>
         <td>
             <a th:href="@{/students/update(id=${student.id})}"

@@ -45,9 +45,9 @@ public class AccountDAO implements UtilDAO<Account>{
     }
 
     public Account findByUsername(String username){
-        String jpql="Select a from Account a where a.username= :u";
+        String jpql="Select a from Account a where a.username= :username";
         TypedQuery<Account> query=this.entityManager.createQuery(jpql,Account.class);
-        query.setParameter("u",username);
+        query.setParameter("username",username);
         return query.getSingleResult();
     }
 }

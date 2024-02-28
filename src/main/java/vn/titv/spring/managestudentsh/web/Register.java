@@ -1,7 +1,7 @@
 package vn.titv.spring.managestudentsh.web;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
+import vn.titv.spring.managestudentsh.entity.Role;
 
 import java.sql.Date;
 
@@ -23,17 +23,27 @@ public class Register {
     @NotBlank(message = "field force")
     @Email(message="Email is not validated")
     private String email;
-
+    @NotBlank(message = "field force")
+    private String role;
     public Register() {
     }
 
-    public Register(String username, String password, String fullName, Date dateOfBirth, Boolean gender, String email) {
+    public Register(String username, String password, String fullName, Date dateOfBirth, Boolean gender, String email,String role) {
         this.username = username;
         this.password = password;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.email = email;
+        this.role=role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getFullName() {

@@ -19,7 +19,7 @@ public class Account {
     @OneToOne(mappedBy ="account",cascade = CascadeType.ALL)
     private Person person;
 
-    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @ManyToMany(fetch=FetchType.EAGER,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(name="account_role",
                 joinColumns=@JoinColumn(name="account_id"),
                 inverseJoinColumns = @JoinColumn(name="role_id"))
